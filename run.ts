@@ -12,15 +12,18 @@ async function getNFTsByOwner(){
     
     const assets = await umi.rpc.getAssetsByOwner({
         owner,
-        limit: 10
+        limit: 10,
+        page:1
     });
     console.log(assets.items.length > 0);
-    console.log(assets.items)
+    
+    //console.log(assets.items)
 
     for (var i=0; i< assets.items.length; i++){
         console.log(assets.items[i].id)
 
     }
+    console.log("total:", assets.total)
 }
 
 getNFTsByOwner()
